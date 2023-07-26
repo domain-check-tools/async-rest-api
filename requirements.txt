@@ -1,0 +1,7 @@
+uvicorn==0.23.0
+django==4.2.3
+djangorestframework==3.14.0
+adrf==0.1.1 # need for using djangorestframework with async
+django-cacheops==7.0.1
+requests-async==0.6.2
+python-dotenv==1.0.0

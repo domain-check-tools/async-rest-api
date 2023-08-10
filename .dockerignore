@@ -1,0 +1,4 @@
+**/*.log
+README.md
+**/__python__
+Dockerfile

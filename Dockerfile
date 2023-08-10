@@ -13,9 +13,10 @@ EXPOSE 8000
 
 COPY --from=builder /install /opt/pypy/
 
-COPY entrypoint/docker-entrypoint.sh .
+COPY entrypoint entrypoint
 
 COPY app .
 
-RUN chmod +x /app/docker-entrypoint.sh
-ENTRYPOINT ["/app/docker-entrypoint.sh"]
+RUN find entrypoint -type f -exec chmod +x {} \;
+
+CMD ["/app/entrypoint/docker-entrypoint.sh"]

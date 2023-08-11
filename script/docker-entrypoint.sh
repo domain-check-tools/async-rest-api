@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 NAME="api"
 
-source entrypoint/base.sh
+source script/base.sh
 
 # Start your Django Unicorn
 exec uvicorn ${DJANGO_ASGI_MODULE}:application \

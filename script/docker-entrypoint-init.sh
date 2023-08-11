@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 NAME="init"
 
-source entrypoint/base.sh
+source script/base.sh
 
 python manage.py migrate

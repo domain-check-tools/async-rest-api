@@ -71,6 +71,8 @@ INSTALLED_APPS = [
     'drf_standardized_errors',  #
     'cacheops',  # caching system
     'corsheaders',  # for support cors
+    'drf_spectacular',  # generator swagger
+    'drf_spectacular_sidecar',  # required for Django collectstatic discovery
 
     'v1',
 ]
@@ -114,15 +116,22 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': env['DB_NAME'],
+        'USER': env['DB_USER'],
+        'PASSWORD': env['DB_PASSWORD'],
+        'HOST': env.get('DB_HOST', '127.0.0.1'),
+        'PORT': env.get('DB_PORT', '3306'),
+        'OPTIONS': {
+            'charset': 'utf8mb4',
+        }
     }
 }
 CACHEOPS_REDIS = 'redis://{user}:{password}@{host}:{port}'.format(
-    user=env.get('REDIS_USER', 'default'),
-    password=env.get('REDIS_PASSWORD', 'password'),
-    host=env.get('REDIS_HOST', '127.0.0.1'),
-    port=env.get('REDIS_PORT', '6379')
+    user=env.get('CACHE_USER', 'default'),
+    password=env.get('CACHE_PASSWORD', 'password'),
+    host=env.get('CACHE_HOST', '127.0.0.1'),
+    port=env.get('CACHE_PORT', '6379')
 )
 
 # Password validation
@@ -156,6 +165,13 @@ DRF_STANDARDIZED_ERRORS = {
     "ENABLE_IN_DEBUG_FOR_UNHANDLED_EXCEPTIONS": False
 }
 
+# docs
+SPECTACULAR_SETTINGS = {
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+    # OTHER SETTINGS
+}
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/
 

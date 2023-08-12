@@ -5,8 +5,9 @@ from .apps import APIConfig
 app_name = APIConfig.name
 
 dir_name = 'endpoints'
+location = '{app_name}.{dir_name}'.format(app_name=app_name, dir_name=dir_name)
 
 urlpatterns = [
-    path('service/', include('{app_name}.{dir_name}.service.urls'.format(app_name=app_name, dir_name=dir_name))),
+    path('service/', include(location + '.service.urls')),
 
 ]

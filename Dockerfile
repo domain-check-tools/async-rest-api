@@ -19,4 +19,4 @@ COPY app .
 
 RUN find script -type f -exec chmod +x {} \;
 
-CMD ["/app/entrypoint/docker-entrypoint.sh"]
+CMD ["/app/script/docker-entrypoint.sh"]

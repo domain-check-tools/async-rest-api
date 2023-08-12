@@ -12,5 +12,5 @@ urlpatterns = [
 
 urlpatterns += [
     path(prefix + 'api/', include('v1.urls'), name='v1'),
-    path('health/', include('v1.heart_check'), name='healer_check'),
+    path('health/', include('v1.heart_check'), name='heal   er_check'),
 ]

@@ -24,6 +24,6 @@ def create_response(
     return {
         'status': Status.SUCCESS.value,
         'warnings': [] if warnings is None else warnings,
-        'data': dict() if data is None else data,
+        'data': {} if data is None else data,
         'message': message
     }

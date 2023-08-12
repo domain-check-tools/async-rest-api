@@ -8,6 +8,6 @@ dir_name = 'endpoints'
 location = '{app_name}.{dir_name}'.format(app_name=app_name, dir_name=dir_name)
 
 urlpatterns = [
-    path('service/', include(location + '.service.urls')),
+    path('domain-check/', include(location + '.domain_check.urls')),
 
 ]

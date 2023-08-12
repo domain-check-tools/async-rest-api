@@ -62,7 +62,8 @@ INSTALLED_APPS = [
     'drf_spectacular',  # generator swagger
     'drf_spectacular_sidecar',  # required for Django collectstatic discovery
 
-    'v1',
+    'translate',
+    'services',
 ]
 
 MIDDLEWARE = [
@@ -70,7 +71,7 @@ MIDDLEWARE = [
 
     "corsheaders.middleware.CorsMiddleware",  # For support cors
     'whitenoise.middleware.WhiteNoiseMiddleware',  # For support get static
-    'v1.middleware.ignoreAllowHostForCheckHeartStatus.IgnoreAllowedHostsMiddleware',
+    'core.middleware.ignoreAllowHostForCheckHeartStatus.IgnoreAllowedHostsMiddleware',
 
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

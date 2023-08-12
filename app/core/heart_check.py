@@ -15,8 +15,3 @@ class StatusCheck(APIView):
         return Response(dict(
             msg='ok'
         ))
-
-
-urlpatterns = [
-    path('', StatusCheck.as_view()),
-]

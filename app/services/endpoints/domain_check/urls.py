@@ -1,8 +1,8 @@
 from django.urls import path
 
+from core.service.cache import cached_view
 from .views import Test
 from ...apps import APIConfig
-from ...services.cache import cached_view
 
 urlpatterns = [
     path('', Test.as_view()),

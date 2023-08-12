@@ -5,7 +5,7 @@ from typing import Dict, Optional, Text, Union
 import requests_async as requests
 from requests_async import Response
 
-from v1.apps import APIConfig
+from services.apps import APIConfig
 
 logger = logging.getLogger(__name__)
 
